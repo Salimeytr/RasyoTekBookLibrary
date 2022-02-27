@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BookLibrary.Ent.Publishers>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Publishers</h1>
+
+<form method="post">
+            <a class="btn btn-primary"
+               href="/Publishers/Create">Create New</a>
+        </form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PublisherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBye)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBye)
+            </td>
+          
+            <td>
+                        <a href="/Publishers/Edit/@item.Id" class="btn btn-sm btn-warning">Edit</a>
+
+                        <a href="/Publishers/Delete/@item.Id" class="btn btn-sm btn-danger">Delete</a>
+
+             </td>
+        </tr>
+}
+    </tbody>
+</table>

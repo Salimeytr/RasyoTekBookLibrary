@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BookLibrary.Ent.Entities.Writers>
+
+@{
+    ViewData["Title"] = "Writers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>List</h1>
+
+<form method="post">
+            <a class="btn btn-primary"
+               href="/Writers/Create">Create New</a>
+        </form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WriterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WriterContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBye)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WriterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WriterContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBye)
+            </td>
+             <td>
+                        <a href="/Writers/Edit/@item.Id" class="btn btn-sm btn-warning">Edit</a>
+
+                        <a href="/Writers/Delete/@item.Id" class="btn btn-sm btn-danger">Delete</a>
+
+             </td>
+        </tr>
+}
+    </tbody>
+</table>
